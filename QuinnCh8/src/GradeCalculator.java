@@ -26,8 +26,9 @@ public class GradeCalculator extends JFrame {
 	JButton enterJButton;
 	JButton clearJButton;
 	
-	int numberOfScores;
-	String scoreAmount;
+	int numberOfScores, accumulatorVariable = 0, scoreVariable, k = 0;
+	double averageScore;
+	String scoreAmount, score;
 	
 	public GradeCalculator() {
 		createUserInterface();
@@ -64,7 +65,7 @@ public class GradeCalculator extends JFrame {
 		contentPane.add(enterStartJLabel);
 		
 		enterJButton = new JButton();
-		enterJButton.setBounds(175, 300, 300, 20);
+		enterJButton.setBounds(100, 300, 100, 20);
 		enterJButton.setFont(new Font("Default", Font.PLAIN, 9));
 		enterJButton.setText("Enter");
 		enterJButton.setForeground(black);
@@ -72,10 +73,8 @@ public class GradeCalculator extends JFrame {
 		contentPane.add(enterJButton);
 		enterJButton.addActionListener(
 		
-			new ActionListener()
-			{
-				public void actionPerformed(ActionEvent event)
-				{
+			new ActionListener() {
+				public void actionPerformed(ActionEvent event) {
 					enterJButtonActionPerformed(event);
 				}
 			}
@@ -90,10 +89,8 @@ public class GradeCalculator extends JFrame {
 		contentPane.add(clearJButton);
 		clearJButton.addActionListener(
 		
-			new ActionListener()
-			{
-				public void actionPerformed(ActionEvent event)
-				{
+			new ActionListener() {
+				public void actionPerformed(ActionEvent event) {
 					clearJButtonActionPerformed(event);
 				}
 			}
@@ -111,6 +108,9 @@ public class GradeCalculator extends JFrame {
 	
    	public void enterJButtonActionPerformed(ActionEvent event) {
    		numberOfScores = getNumberOfScores();
+   		getScores();
+   		averageScore = calculateAverage();
+   		printResults();
 	}
    	
    	public int getNumberOfScores() {
@@ -119,7 +119,45 @@ public class GradeCalculator extends JFrame {
    		return numberOfScores;
    	}
    	
+   	public void getScores() {
+   		do{
+   			score = JOptionPane.showInputDialog("Please enter score:");
+   			scoreVariable = Integer.parseInt(score);
+   			accumulatorVariable += scoreVariable;
+   			k++;
+   		}while(k != numberOfScores);
+   	}
    	
+   	public double calculateAverage() {
+   		averageScore = accumulatorVariable / numberOfScores;
+		return averageScore;
+   	}
    	
-	
+   	public void printResults() {
+   		if(averageScore > 89) {
+   			gradeJTextField.setText("A");	
+   		}
+   		
+   		else if(averageScore > 79) {
+   			gradeJTextField.setText("B");
+   		}
+   		
+   		else if(averageScore > 69) {
+   			gradeJTextField.setText("C");
+   		}
+   		
+   		else if(averageScore > 64) {
+   			gradeJTextField.setText("D");
+   		}
+   		
+   		else if(averageScore <= 64) {
+   			gradeJTextField.setText("F");
+   		} 		
+   	}
+   	
+	public void clearJButtonActionPerformed(ActionEvent event)
+	{
+		gradeJTextField.setText("");
+		gradeJTextField.requestFocusInWindow();
+	}	
 }
