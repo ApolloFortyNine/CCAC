@@ -26,8 +26,8 @@ public class GradeCalculator extends JFrame {
 	JButton enterJButton;
 	JButton clearJButton;
 	
-	int numberOfScores, accumulatorVariable = 0, scoreVariable, k = 0;
-	double averageScore;
+	int numberOfScores = 0, accumulatorVariable = 0, scoreVariable = 0, k = 0;
+	double averageScore = 0;
 	String scoreAmount, score;
 	
 	public GradeCalculator() {
@@ -120,6 +120,7 @@ public class GradeCalculator extends JFrame {
    	}
    	
    	public void getScores() {
+   		k = 0;
    		do{
    			score = JOptionPane.showInputDialog("Please enter score:");
    			scoreVariable = Integer.parseInt(score);
