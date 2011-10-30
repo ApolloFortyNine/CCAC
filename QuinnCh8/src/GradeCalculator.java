@@ -104,12 +104,22 @@ public class GradeCalculator extends JFrame {
 		setVisible(true);
 	}
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
       	GradeCalculator application = new GradeCalculator();
       	application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	
+   	public void enterJButtonActionPerformed(ActionEvent event) {
+   		numberOfScores = getNumberOfScores();
+	}
+   	
+   	public int getNumberOfScores() {
+   		scoreAmount = JOptionPane.showInputDialog("Number of scores to be entered?");
+   		numberOfScores = Integer.parseInt(scoreAmount);
+   		return numberOfScores;
+   	}
+   	
+   	
+   	
 	
 }
