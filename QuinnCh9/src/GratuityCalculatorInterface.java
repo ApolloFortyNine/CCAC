@@ -124,8 +124,6 @@ public class GratuityCalculatorInterface extends JFrame {
 					clearJButtonActionPerformed(event);
 				}
 			}
-			
-			
 		);
 		
 		closeJButton = new JButton();
