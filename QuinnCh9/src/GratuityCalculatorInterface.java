@@ -45,7 +45,7 @@ public class GratuityCalculatorInterface extends JFrame {
 		
 		billAmountJLabel = new JLabel();
 		billAmountJLabel.setBounds(50, 50, 120, 20);
-		billAmountJLabel.setFont(new Font("Default", Font.PLAIN, 12));
+		billAmountJLabel.setFont(new Font("Default", Font.PLAIN, 9));
 		billAmountJLabel.setText("Enter the amount of the bill:");
 		billAmountJLabel.setForeground(black);
 		billAmountJLabel.setHorizontalAlignment(JLabel.LEFT);
@@ -95,7 +95,7 @@ public class GratuityCalculatorInterface extends JFrame {
 		contentPane.add(totalBillAmountJTextField);
 		
 		enterJButton = new JButton();
-		enterJButton.setBounds(50, 300, 100, 20);
+		enterJButton.setBounds(20, 300, 100, 20);
 		enterJButton.setFont(new Font("Default", Font.PLAIN, 12));
 		enterJButton.setText("Enter");
 		enterJButton.setForeground(black);
@@ -111,7 +111,7 @@ public class GratuityCalculatorInterface extends JFrame {
 		);
 		
 		clearJButton = new JButton();
-		clearJButton.setBounds(200, 300, 100, 20);
+		clearJButton.setBounds(130, 300, 100, 20);
 		clearJButton.setFont(new Font("Default", Font.PLAIN, 12));
 		clearJButton.setText("Clear");
 		clearJButton.setForeground(black);
